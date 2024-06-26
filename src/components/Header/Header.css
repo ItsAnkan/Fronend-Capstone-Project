@@ -1,0 +1,42 @@
+.topbar {
+	justify-content: space-between;
+	background-color: white;
+	padding: 1rem 1rem;
+	display: flex;
+	align-items: center;
+	height: 4rem;
+	max-width: 65rem;
+	margin: 0 auto;
+}
+
+.logo {
+	height: 50px;
+}
+
+.menu-toggle {
+	display: none;
+}
+
+@media screen and (max-width: 767px) {
+	.topbar {
+		justify-content: space-between;
+		background-color: white;
+		padding: 1rem 1rem;
+		display: flex;
+		align-items: center;
+		height: 4rem;
+		width: -webkit-fill-available;
+		margin: 0 auto;
+		position: fixed;
+		margin-bottom: 96px;
+	}
+
+	.menu-toggle {
+		display: block;
+	}
+
+	.menu-toggle {
+		display: block;
+		cursor: pointer;
+	}
+}
