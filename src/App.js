@@ -1,29 +1,47 @@
-import "./App.css";
-import Layout from "./components/Layout";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Homepage from "./pages/Homepage/Homepage";
-import Reservations from "./pages/Reservations/Reservations";
-import BookingConfirm from "./pages/BookingConfirm/BookingConfirm";
-import UnderConstruction from "./components/UnderConstruction/UnderConstruction";
+import {
+  Route, 
+  Routes
+} from 'react-router-dom';
+import pages from './utils/pages';
+import Layout from './components/layout/Layout';
+import Home from './components/pages/Home';
+import Bookings from './components/pages/Bookings';
+import ConfirmedBooking from './components/pages/Bookings/ConfirmedBooking';
+import NotFound from './components/pages/NotFound';
+import UnderConstruction from './components/pages/UnderConstruction';
 
 const App = () => {
-	return (
-		<div data-testid="app-component">
-			<BrowserRouter>
-				<Layout>
-					<Routes>
-						<Route path="/" element={<Homepage />} />
-						<Route path="/reservations" element={<Reservations />} />
-						<Route path="/about" element={<UnderConstruction />} />
-						<Route path="/menu" element={<UnderConstruction />} />
-						<Route path="/orders" element={<UnderConstruction />} />
-						<Route path="/login" element={<UnderConstruction />} />
-						<Route path="/confirm-booking" element={<BookingConfirm />} />
-					</Routes>
-				</Layout>
-			</BrowserRouter>
-		</div>
-	);
+  return (
+    <>
+      <Layout>
+        <Routes>
+          <Route path={pages.get('home').path} element={<Home />} />
+          <Route 
+            path={pages.get('about').path} 
+            element={<UnderConstruction />} 
+          />
+          <Route 
+            path={pages.get('menu').path} 
+            element={<UnderConstruction />} 
+          />
+          <Route path={pages.get('bookings').path} element={<Bookings />} />
+          <Route 
+            path={pages.get('confirmedBooking').path} 
+            element={<ConfirmedBooking />} 
+          />
+          <Route 
+            path={pages.get('orderOnline').path} 
+            element={<UnderConstruction />} 
+          />
+          <Route 
+            path={pages.get('login').path} 
+            element={<UnderConstruction />} 
+          />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Layout>
+    </>
+  );
 };
 
 export default App;
