@@ -4,7 +4,7 @@ import * as Yup from "yup";
 import Button from "../../components/Button/Button";
 import "./BookingForm.css";
 
-function BookingForm ({ onFormSubmit, availableTimes }) {
+function BookingForm ({ onFormSubmit, availableTimes, dispatchOnDateChange }) {
 	const defaultTime = availableTimes[0];
 
 	const formik = useFormik({
@@ -38,7 +38,7 @@ function BookingForm ({ onFormSubmit, availableTimes }) {
 					type="date"
 					id="date"
 					name="date"
-					onChange={formik.handleChange}
+					onChange={(e) => {formik.handleChange(e); dispatchOnDateChange(e.target.value)}}
 					onBlur={formik.handleBlur}
 					value={formik.values.date}
 					className={formik.touched.date && formik.errors.date ? "error" : ""}
