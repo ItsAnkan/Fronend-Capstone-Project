@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const Navbar = ({ isMenuOpen }) => {
@@ -16,9 +17,9 @@ const Navbar = ({ isMenuOpen }) => {
 			<ul className={`menu-list ${isMenuOpen ? "open" : ""}`}>
 				{menuItems.map(item => (
 					<li key={item.id}>
-						<a href={item.link} className="link">
+						<Link to={item.link} className="link">
 							{item.label}
-						</a>
+						</Link>
 					</li>
 				))}
 			</ul>
